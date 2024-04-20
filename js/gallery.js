@@ -72,7 +72,7 @@ function createImg(original, preview, description) {
   const img = document.createElement("img");
   li.classList.add("gallery-item");
   link.classList.add("gallery-link");
-  link.onclick = () => true;
+  link.onclick = () => false;
   link.style.cursor = "pointer";
   img.classList.add("gallery-image");
   img.width = "360";
@@ -96,11 +96,11 @@ function createGalery(images) {
   gallery.append(...arrayImg);
 }
 
+
 createGalery(images);
 
 gallery.addEventListener("click", function handleClick(event) {
   if (event.target.classList.value === "gallery-image") {
-    // console.log(event.target.dataset.source);
     basicLightbox.create(`<img  src=${event.target.dataset.source}>`).show();
   }
 });
